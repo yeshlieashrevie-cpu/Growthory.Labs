@@ -1,3 +1,5 @@
+console.log("SCRIPT RUNNING");
+
 const supabase = window.supabase.createClient(
     'https://wtljgekzjufyddnrgmbq.supabase.co/rest/v1/',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0bGpnZWt6anVmeWRkbnJnbWJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxODIxNTksImV4cCI6MjA5NDc1ODE1OX0.t6a-ueTua16pgNOrJumVtZZ9W5_MptWDThCnb5KNIoU'
