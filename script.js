@@ -1,3 +1,4 @@
+alert("NEW FILE 777");
 window.supabaseClient =
     window.supabaseClient ||
     window.supabase.createClient(
