@@ -281,3 +281,11 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("window.showPage exists:", typeof window.showPage);
 });
 
+// Map all function names to the global window scope so buttons never freeze
+window.showPage = showPage;
+window.handleNavClick = handleNavClick;
+window.goToPage3 = goToPage3;
+window.goToPage4 = goToPage4;
+window.validateAndGoToPage4 = goToPage4; // Crucial backup mapping for the HTML button
+
+console.log("BOTTOM OF FILE REACHED");
