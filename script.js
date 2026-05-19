@@ -96,10 +96,11 @@ const { error } = await supabaseClient.from('orders').insert({
     'empty hours': document.getElementById('empty-seats')?.value || '',
     'reasons for not returning': document.getElementById('low-repeat')?.value || '',
     'retention efforts': document.getElementById('loyalty-program')?.value || '',
+    // MATCHED TYPO: using 'cutomers' to align perfectly with your Supabase column title
     'difficult to handle cutomers': document.getElementById('inconvenient-customers')?.value || '',
-    'Brand personality': Array.from(document.querySelectorAll('input[id^="bp"]:checked')).map(cb => { 
+    'Brand personality': Array.from(document.querySelectorAll('input[name="brand-personality"]:checked')).map(cb => { 
         var label = document.querySelector('label[for="' + cb.id + '"]'); 
-        return label ? label.innerText : cb.id; 
+        return label ? label.innerText : cb.value; 
     }).join(', '),
     'Current content platforms': document.getElementById('content-platforms')?.value || '',
     'Biggest challenge in content creation': document.getElementById('content-challenge')?.value || '',
@@ -118,9 +119,9 @@ const { error } = await supabaseClient.from('orders').insert({
     'What is the story behind your café?': document.getElementById('story')?.value || ''
 });
 
-    if (error) {
-    console.error(error);
-    alert('Failed to save form. Please try again.');
+if (error) {
+    console.error("SUPABASE ERROR LOG:", error);
+    alert('Database Error: ' + error.message + ' \nDetails: ' + error.details);
     return;
 }
 
