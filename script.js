@@ -206,7 +206,7 @@ document.querySelectorAll('#page-3 textarea').forEach((textarea) => {
  * (set that in your Payment Link settings to your page's URL + ?success=1).
  */
 
-var PAYMONGO_PAYMENT_LINK = 'YOUR_PAYMONGO_LINK';
+var PAYMONGO_PAYMENT_LINK = 'https://pm.link/org-hLKcyoeJwvqmvuAjTgzdWBR6/VeoAQBT';
 
 var payBtn = document.getElementById('paymongo-btn');
 
