@@ -192,7 +192,7 @@ document.querySelectorAll('#page-3 textarea').forEach((textarea) => {
  * (set that in your Payment Link settings to your page's URL + ?success=1).
  */
 
-var PAYMONGO_PAYMENT_LINK = 'https://checkout.paymongo.com/links/REPLACE_WITH_YOUR_LINK';
+var PAYMONGO_PAYMENT_LINK = 'https://pm.link/org-hLKcyoeJwvqmvuAjTgzdWBR6/VeoAQBT';
 
 document.getElementById('paymongo-btn').addEventListener('click', function() {
     
