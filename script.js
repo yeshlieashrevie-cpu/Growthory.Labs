@@ -1,5 +1,3 @@
-console.log("SCRIPT RUNNING");
-
 const supabase = window.supabase.createClient(
     'https://wtljgekzjufyddnrgmbq.supabase.co/rest/v1/',
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0bGpnZWt6anVmeWRkbnJnbWJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxODIxNTksImV4cCI6MjA5NDc1ODE1OX0.t6a-ueTua16pgNOrJumVtZZ9W5_MptWDThCnb5KNIoU'
@@ -79,7 +77,7 @@ async function goToPage4() {
     }
 
     // 2. Insert into Supabase (Left side = Supabase column, Right side = HTML input value)
-    await supabase.from('orders').insert({
+     const { error } = await supabase.from('orders').insert({
         fname: document.getElementById('fname').value,
         lname: document.getElementById('lname').value,
         email: document.getElementById('email').value,
@@ -115,6 +113,12 @@ async function goToPage4() {
         'Average price range?': document.querySelector('input[name="price"]:checked')?.value || '',
         'What is the story behind your café?': document.getElementById('story').value // No comma on the very last item!
     });
+
+    if (error) {
+    console.error(error);
+    alert('Failed to save form. Please try again.');
+    return;
+}
 
     // 3. Navigate to the next page
     showPage(4);
