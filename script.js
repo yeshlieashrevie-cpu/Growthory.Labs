@@ -59,17 +59,60 @@ function goToPage3() {
     showPage(3);
 }
 
-function goToPage4() {
+async function goToPage4() {
+    // 1. Check if required fields are filled out
     var req = ['cafe-name', 'cafe-location', 'target-audience', 'usp', 'primary-goal'];
     for (var i = 0; i < req.length; i++) {
         var el = document.getElementById(req[i]);
-        if (!el.value.trim()) {
-            el.focus();
-            el.style.borderColor = '#7D39EB';
-            setTimeout(() => { el.style.borderColor = ''; }, 2000);
+        if (!el || !el.value.trim()) {
+            if (el) {
+                el.focus();
+                el.style.borderColor = '#7D39EB';
+                setTimeout(() => { el.style.borderColor = ''; }, 2000);
+            }
             return;
         }
     }
+
+    // 2. Insert into Supabase (Left side = Supabase column, Right side = HTML input value)
+    await supabase.from('orders').insert({
+        fname: document.getElementById('fname').value,
+        lname: document.getElementById('lname').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        Platform: document.querySelector('input[name="platform"]:checked')?.value || '',
+        URL: document.getElementById('social-url').value,
+        'City/Municipality': document.getElementById('city').value,
+        'Cafe Name': document.getElementById('cafe-name').value,
+        'Cafe Loc.': document.getElementById('cafe-location').value,
+        'Type of café': document.querySelector('input[name="cafe-type"]:checked')?.value || '',
+        'Years in operation': document.querySelector('input[name="years"]:checked')?.value || '',
+        'Target audience': document.getElementById('target-audience').value,
+        USP: document.getElementById('usp').value,
+        'social media links': document.getElementById('social-links').value,
+        'empty hours': document.getElementById('empty-seats').value,
+        'reasons for not returning': document.getElementById('low-repeat').value,
+        'retention efforts': document.getElementById('loyalty-program').value,
+        'difficult to handle cutomers': document.getElementById('inconvenient-customers').value,
+        'Brand personality': Array.from(document.querySelectorAll('input[name="brand-personality"]:checked')).map(el => el.value).join(', '),
+        'Current content platforms': document.getElementById('content-platforms').value,
+        'Biggest challenge in content creation': document.getElementById('content-challenge').value,
+        'content that can be repurposed': document.getElementById('repurpose-content').value,
+        'Typical customer experience': document.getElementById('customer-experience').value,
+        'How do you collect customer feedback?': document.getElementById('feedback-methods').value,
+        'Primary business goal': document.getElementById('primary-goal').value,
+        'Specific goals for the next 3–6 months': document.getElementById('specific-goals').value,
+        'What do you expect from the roadmap': document.getElementById('roadmap-expectations').value,
+        'Average daily or weekly customer count': document.getElementById('customer-count').value,
+        'Average transaction value': document.getElementById('transaction-value').value,
+        'Peak hours / days': document.getElementById('peak-hours').value,
+        'Slow hours / days': document.getElementById('slow-hours').value,
+        'Top 3 best-selling items?': document.getElementById('bestsellers').value,
+        'Average price range?': document.querySelector('input[name="price"]:checked')?.value || '',
+        'What is the story behind your café?': document.getElementById('story').value // No comma on the very last item!
+    });
+
+    // 3. Navigate to the next page
     showPage(4);
 }
 
