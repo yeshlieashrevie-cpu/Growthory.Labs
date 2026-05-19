@@ -263,3 +263,17 @@ window.handleNavClick = handleNavClick;
 window.goToPage3 = goToPage3;
 window.goToPage4 = goToPage4;
 
+console.log("BOTTOM OF FILE REACHED");
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("DOM LOADED");
+
+    const testBtn = document.querySelector('.btn');
+
+    console.log("BUTTON FOUND:", testBtn);
+
+    console.log("showPage exists:", typeof showPage);
+
+    console.log("window.showPage exists:", typeof window.showPage);
+});
+
