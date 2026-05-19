@@ -1,11 +1,10 @@
 alert("NEW FILE 777");
 
    const supabaseClient = supabase.createClient(
-        'https://wtljgekzjufyddnrgmbq.supabase.co/rest/v1/',
+        'https://wtljgekzjufyddnrgmbq.supabase.co',
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Ind0bGpnZWt6anVmeWRkbnJnbWJxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzkxODIxNTksImV4cCI6MjA5NDc1ODE1OX0.t6a-ueTua16pgNOrJumVtZZ9W5_MptWDThCnb5KNIoU'
     );
 
-const supabaseClient = window.supabaseClient;
 var maxReachedPage = 1;
 var currentPage = 1;
 
@@ -80,7 +79,7 @@ async function goToPage4() {
     }
 
     // 2. Insert into Supabase (Left side = Supabase column, Right side = HTML input value)
-     const { error } = await supabase.from('orders').insert({
+     const { error } = await supabaseClient.from('orders').insert({
         fname: document.getElementById('fname').value,
         lname: document.getElementById('lname').value,
         email: document.getElementById('email').value,
