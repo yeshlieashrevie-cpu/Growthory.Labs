@@ -255,4 +255,11 @@ if (payBtn) {
         history.replaceState({}, '', window.location.pathname);
         showPage(5);
     }
+    
 })();
+
+window.showPage = showPage;
+window.handleNavClick = handleNavClick;
+window.goToPage3 = goToPage3;
+window.goToPage4 = goToPage4;
+
