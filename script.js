@@ -163,8 +163,9 @@ const timelineObserver = new IntersectionObserver((entries) => {
         }
     });
 }, { threshold: 0.15 });
-timelineObserver.observe(timeline);
-
+if (timeline) {
+    timelineObserver.observe(timeline);
+}
 /* ===================================== */
 /* AUTO EXPANDING TEXTAREAS              */
 /* ===================================== */
@@ -192,38 +193,55 @@ document.querySelectorAll('#page-3 textarea').forEach((textarea) => {
  *
  * The button will redirect the customer to your PayMongo-hosted
  * checkout page where they can pay via GCash, Maya, card, or bank.
- * After payment, PayMongo redirects them back to your success URL
+ * After payment, PayMongo redirects them back to yourf success URL
  * (set that in your Payment Link settings to your page's URL + ?success=1).
  */
 
-var PAYMONGO_PAYMENT_LINK = 'https://pm.link/org-hLKcyoeJwvqmvuAjTgzdWBR6/VeoAQBT';
+var PAYMONGO_PAYMENT_LINK = 'YOUR_PAYMONGO_LINK';
 
-document.getElementById('paymongo-btn').addEventListener('click', function() {
-    
-    var btn = this;
-    
-    // Collect customer name and email from the form to append as query params
-    // so PayMongo can pre-fill the checkout form (optional but helpful)
-    var fname = document.getElementById('fname') ? document.getElementById('fname').value.trim() : '';
-    var lname = document.getElementById('lname') ? document.getElementById('lname').value.trim() : '';
-    var email = document.getElementById('email') ? document.getElementById('email').value.trim() : '';
-    
-    // Show loading state on button
-    btn.textContent = 'Redirecting to checkout...';
-    btn.disabled = true;
-    btn.style.opacity = '0.7';
-    
-    // Build URL — PayMongo payment links accept ?email= to pre-fill
-    var checkoutUrl = PAYMONGO_PAYMENT_LINK;
-    if (email) {
-        checkoutUrl += (checkoutUrl.includes('?') ? '&' : '?') + 'email=' + encodeURIComponent(email);
-    }
-    
-    // Short delay so the user sees the button state change, then redirect
-    setTimeout(function() {
-        window.location.href = checkoutUrl;
-    }, 400);
-});
+var payBtn = document.getElementById('paymongo-btn');
+
+if (payBtn) {
+
+    payBtn.addEventListener('click', function() {
+
+        var btn = this;
+
+        // Collect customer info
+        var fname = document.getElementById('fname')
+            ? document.getElementById('fname').value.trim()
+            : '';
+
+        var lname = document.getElementById('lname')
+            ? document.getElementById('lname').value.trim()
+            : '';
+
+        var email = document.getElementById('email')
+            ? document.getElementById('email').value.trim()
+            : '';
+
+        // Button loading state
+        btn.textContent = 'Redirecting to checkout...';
+        btn.disabled = true;
+        btn.style.opacity = '0.7';
+
+        // Build checkout URL
+        var checkoutUrl = PAYMONGO_PAYMENT_LINK;
+
+        if (email) {
+            checkoutUrl +=
+                (checkoutUrl.includes('?') ? '&' : '?') +
+                'email=' + encodeURIComponent(email);
+        }
+
+        // Redirect
+        setTimeout(function() {
+            window.location.href = checkoutUrl;
+        }, 400);
+
+    });
+
+}
 
 /* Handle return from PayMongo (success redirect) */
 (function checkPaymentReturn() {
