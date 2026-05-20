@@ -2187,4 +2187,26 @@ box-shadow:
 
     font-weight: 600;
 }
+
+/* I-apply ang class na 'reminder-highlight' sa HTML element ng iyong reminders */
+.reminder-highlight {
+    background: rgba(125, 57, 235, 0.15); /* Soft violet highlight */
+    border-left: 4px solid var(--violet); /* Bold border sa gilid */
+    padding: 1rem;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 1.5rem;
+    
+    /* Siguraduhin na visible ang text sa loob ng highlight */
+    color: #2B1B12; 
+    font-weight: 700;
+}
+
+/* Optional: Lagyan ng maliit na icon o indicator */
+.reminder-highlight::before {
+    content: "!";
+    display: inline-block;
+    margin-right: 10px;
+    color: var(--violet);
+    font-weight: 900;
+}
     
