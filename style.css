@@ -899,11 +899,14 @@ nav {
 
     flex-shrink: 0;
 
+    overflow: visible;
+
     background:
         rgba(255,255,255,0.10);
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,0.08);
+    inset 0 1px 0 rgba(255,255,255,0.08),
+    0 0 30px rgba(198,255,51,0.10);
 }
 
 .reminder-icon svg {
@@ -916,7 +919,7 @@ nav {
     stroke-width: 2.2;
 
     filter:
-        drop-shadow(0 0 10px rgba(198,255,51,0.28));
+        drop-shadow(0 0 18px rgba(198,255,51,0.20));
 
     opacity: 0.95;
 }
