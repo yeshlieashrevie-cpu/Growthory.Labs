@@ -838,7 +838,7 @@ nav {
 
     position: relative;
 
-    backdrop-filter: blur(18px);
+    backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(18px);
 
     border: 1.5px solid rgba(255,255,255,0.12);
@@ -869,21 +869,16 @@ nav {
 .reminder-lime {
 
     background:
-        linear-gradient(
-            135deg,
-            rgba(198,255,51,0.18),
-            rgba(110,160,20,0.14)
-        );
+        rgba(18,18,18,0.72);
 
     border:
-        1.5px solid rgba(198,255,51,0.34);
+        1px solid rgba(198,255,51,0.18);
 
     box-shadow:
-        0 0 18px rgba(198,255,51,0.12),
-        0 0 40px rgba(198,255,51,0.08),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+        0 8px 24px rgba(0,0,0,0.28);
 
-    animation: limeGlow 2.8s ease-in-out infinite;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .reminder-icon {
@@ -984,27 +979,6 @@ nav {
         font-size: 0.88rem;
     }
 }
-@keyframes limeGlow {
-
-    0% {
-        box-shadow:
-            0 0 18px rgba(198,255,51,0.10),
-            0 0 35px rgba(198,255,51,0.06);
-    }
-
-    50% {
-        box-shadow:
-            0 0 28px rgba(198,255,51,0.22),
-            0 0 60px rgba(198,255,51,0.14);
-    }
-
-    100% {
-        box-shadow:
-            0 0 18px rgba(198,255,51,0.10),
-            0 0 35px rgba(198,255,51,0.06);
-    }
-}
-
 
 /* ===================================== */
 /* PAGE 2 NOTEBOOK STYLE */
