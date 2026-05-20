@@ -1722,8 +1722,6 @@ box-shadow:
 
     backdrop-filter: blur(2px);
 
-    transform: rotate(-8deg);
-
     z-index: 5;
 }
 
@@ -1943,7 +1941,6 @@ box-shadow:
     top: 12px;
     left: -34px;
 
-    transform: rotate(-12deg);
 }
 
 .receipt-tape.tape-right {
@@ -1951,7 +1948,6 @@ box-shadow:
     top: 12px;
     right: -34px;
 
-    transform: rotate(12deg);
 }
 
 /* ===================================== */
