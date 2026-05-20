@@ -1233,3 +1233,42 @@ input:focus, textarea:focus, select:focus {
     transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 0 15px var(--violet);
 }
+
+/* Page 3 Slant Effect */
+.notebook-page-3 {
+    position: relative;
+    transform: perspective(1000px) rotateX(5deg);
+    transform-style: preserve-3d;
+    background: #ffffff;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Glowing & Floating Effect (I-apply ito sa classes ng boxes mo) */
+.glowing-box {
+    position: relative;
+    z-index: 10;
+    
+    /* Slant alignment para sumabay sa notebook */
+    transform: skewX(-5deg); 
+    
+    /* Floating shadow */
+    filter: drop-shadow(0 15px 20px rgba(0, 0, 0, 0.3));
+    
+    /* Glowing Aura */
+    box-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.5), 
+        0 0 20px rgba(0, 150, 255, 0.4),   
+        0 0 40px rgba(0, 150, 255, 0.2);
+    
+    /* Siguradong hindi nasisira ang loob */
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Floating animation sa hover */
+.glowing-box:hover {
+    filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.4));
+    transform: skewX(-5deg) translateY(-10px);
+}
