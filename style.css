@@ -39,13 +39,10 @@ h1, h2, h3, h4, .nav-brand {
 /* Video Background Holder */
 .video-bg-container {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    top: 0; /* FIXED: Mas safe kesa sa top: 50% kung full screen fluid background ang hanap */
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: -10;
     pointer-events: none;
@@ -53,11 +50,13 @@ h1, h2, h3, h4, .nav-brand {
 
 /* MOBILE VIDEO CENTER FIX */
 @media (max-width: 768px) {
-    .bg-video {
+    /* FIXED: Pinalitan ang .bg-video ng tamang target selector selector */
+    .video-bg-container video { 
         width: auto;
         height: 100vh;
-        min-width: auto;
+        min-width: 100%;
         min-height: 100vh;
+        object-fit: cover;
     }
 }
 
@@ -452,8 +451,10 @@ nav {
     box-shadow: 0 8px 20px rgba(125,57,235,0.22);
 }
 
+/* FIXED: Binago mula white patungong dark purple para mabasa sa kremang papel */
 #page-2 .section-title {
-    color: white;
+    color: #3D2352; 
+    text-shadow: none;
 }
 
 #page-2 .card.glass * {
@@ -573,8 +574,10 @@ nav {
     box-shadow: 0 8px 20px rgba(125,57,235,0.22);
 }
 
+/* FIXED: Binago mula white patungong dark purple para mabasa sa kremang papel */
 #page-3 .section-title {
-    color: white;
+    color: #3D2352;
+    text-shadow: none;
 }
 
 #page-3 .card.glass * {
@@ -583,22 +586,20 @@ nav {
 }
 
 /* ==========================================================================
-   NEW LIME GLOW BOX REMINDER LAYOUT (IN-UPDATE AT PINAGSAMA NA DITO)
+   NEW LIME GLOW BOX REMINDER LAYOUT (FLOATING & ANIMATION READY)
    ========================================================================== */
 
-/* Parent Container na nagbibigay ng room sa neon glow para hindi tabas */
 .answer-reminders {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
-    padding: 15px !important; /* Safe buffer space laban sa layout clipping */
+    padding: 20px !important;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Base card para sa dalawang paalala (May notebook slant effect) */
 .reminder-card, 
 .lime-instruction-box {
     display: flex !important;
@@ -608,22 +609,32 @@ nav {
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     box-sizing: border-box;
-    
-    /* CRITICAL AT IMPORTANT: Pinapayagan lumabas ang glow nang buo */
     overflow: visible !important; 
-    
-    /* Notebook natural handwriting slanting */
-    transform: rotate(-0.5deg); 
-    transition: transform 0.3s ease;
+    transform: rotate(0deg) translateY(0); 
+    animation: floatingBox 4s ease-in-out infinite alternate;
+    opacity: 0;
+    scale: 0.8;
+    transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                scale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                transform 0.3s ease;
 }
 
-/* Kontra-slant sa pangalawang box para mas organic tingnan */
 .reminder-card:nth-child(even),
 .lime-instruction-box:nth-child(even) {
-    transform: rotate(0.5deg);
+    animation-delay: 0.5s;
 }
 
-/* Icon layout */
+.answer-reminders.animate-pop .reminder-card,
+.answer-reminders.animate-pop .lime-instruction-box {
+    opacity: 1;
+    scale: 1;
+}
+
+@keyframes floatingBox {
+    0% { transform: rotate(0deg) translateY(0px); }
+    100% { transform: rotate(0deg) translateY(-8px); }
+}
+
 .reminder-icon {
     display: flex;
     align-items: center;
@@ -632,9 +643,14 @@ nav {
     width: 24px;
     height: 24px;
     margin-top: 0.15rem;
+    scale: 0;
+    transition: scale 0.5s cubic-bezier(0.34, 1.75, 0.64, 1) 0.3s; 
 }
 
-/* Pwersahang ginawang Neon Lime Green pati ang SVG Icons */
+.answer-reminders.animate-pop .reminder-icon {
+    scale: 1;
+}
+
 .reminder-icon svg {
     width: 100%;
     height: 100%;
@@ -642,47 +658,39 @@ nav {
     filter: drop-shadow(0 0 6px rgba(163, 230, 53, 0.7));
 }
 
-/* Content wrapper na pumipilit sa Header at Description na maghiwalay pababa */
 .reminder-content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Gap spacing sa pagitan ng pamagat at talata */
+    gap: 0.5rem;
 }
 
-/* PAREHONG GUMIGISING AT GLOWING NA LIME GREEN THEME (Para sa dalawang cards) */
 .reminder-purple, 
 .lime-instruction-box {
-    background: rgba(163, 230, 53, 0.04) !important; /* Transparent lime green tint */
-    border: 1.8px solid rgba(163, 230, 53, 0.45) !important; /* Solid lime dynamic outline */
-    
-    /* Multi-layered soft edge shadows para iwas pixel clipping at super glow effect */
+    background: rgba(20, 20, 20, 0.92) !important; 
+    border: 2px solid #a3e635 !important; 
     box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.3),
+        0 15px 35px rgba(0, 0, 0, 0.25),
         0 0 20px rgba(163, 230, 53, 0.35),
-        0 0 40px rgba(163, 230, 53, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Kulay ng Headers/Titles sa loob ng card */
 .reminder-purple .reminder-title,
 .lime-instruction-box .reminder-title,
 .reminder-content h4 {
-    color: #a3e635 !important; /* Luminous lime primary text */
+    color: #a3e635 !important;
     font-weight: 800;
     font-size: 1.1rem;
     font-family: 'Outfit', sans-serif;
     text-shadow: 0 0 10px rgba(163, 230, 53, 0.4);
 }
 
-/* Kulay ng description copy sa ilalim */
 .reminder-content p, 
 .reminder-text {
-    color: rgba(255, 255, 255, 0.85) !important; /* Soft white/gray readability layer */
+    color: rgba(255, 255, 255, 0.95) !important;
     font-size: 0.95rem;
     line-height: 1.6;
     font-weight: 500;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Elements Styles */
