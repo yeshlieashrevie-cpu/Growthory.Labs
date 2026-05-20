@@ -605,7 +605,6 @@ nav {
 
     overflow: hidden;
 
-    transform: rotate(-0.4deg);
 }
 
 /* paper texture */
@@ -831,7 +830,6 @@ nav {
 
     overflow: hidden;
 
-    transform: rotate(-0.25deg);
 }
 
 /* paper texture */
@@ -1763,7 +1761,6 @@ box-shadow:
     top: 18px;
     right: -30px;
 
-    transform: rotate(8deg);
 }
 
 /* ===================================== */
@@ -1799,8 +1796,6 @@ box-shadow:
 
     box-shadow:
         0 20px 50px rgba(0,0,0,0.28);
-
-    transform: rotate(-0.3deg);
 }
 
 .payment-paper::before {
