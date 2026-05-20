@@ -818,6 +818,10 @@ nav {
     margin-bottom: 1.8rem;
 
     transform: rotate(-0.35deg);
+
+    max-width: 760px;
+        
+    margin-inline: auto;
 }
 
 .reminder-card {
@@ -833,8 +837,6 @@ nav {
     border-radius: 18px;
 
     position: relative;
-
-    overflow: hidden;
 
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
