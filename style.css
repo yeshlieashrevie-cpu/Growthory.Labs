@@ -815,13 +815,9 @@ nav {
 
     gap: 1rem;
 
-    margin-bottom: 1.8rem;
+    margin-bottom: 1.2rem;
 
     transform: rotate(-0.35deg);
-
-    max-width: 760px;
-        
-    margin-inline: auto;
 }
 
 .reminder-card {
@@ -832,19 +828,16 @@ nav {
 
     gap: 1rem;
 
-    padding: 1.3rem 1.4rem;
+    padding: 1rem 1.2rem;
 
-    border-radius: 18px;
+    border-radius: 16px;
 
-    position: relative;
+    background: rgba(18,18,18,0.72);
 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-
-    border: 1.5px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(198,255,51,0.12);
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.18);
+        0 6px 18px rgba(0,0,0,0.18);
 }
 
 .reminder-card::before {
