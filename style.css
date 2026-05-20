@@ -2209,4 +2209,51 @@ box-shadow:
     color: var(--violet);
     font-weight: 900;
 }
+
+/* --- REMINDERS SECTION STYLING --- */
+
+.answer-reminders {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.reminder-card {
+    display: flex;
+    gap: 15px;
+    padding: 1.2rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.reminder-icon {
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.reminder-title {
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    font-size: 1rem;
+}
+
+.reminder-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Purple Reminder */
+.reminder-purple {
+    background: rgba(125, 57, 235, 0.1); 
+    border-left: 5px solid #7d39eb;
+    color: #4a259c;
+}
+
+/* Lime Reminder */
+.lime-instruction-box {
+    background: rgba(180, 235, 57, 0.1); 
+    border-left: 5px solid #a2d135;
+    color: #556b2f;
+}
     
