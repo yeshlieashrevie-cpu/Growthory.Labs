@@ -2245,31 +2245,60 @@ box-shadow:
     color: #000000;
 }
 
-/* Icon positioning */
-.reminder-icon {
-    flex-shrink: 0;
-    padding-top: 2px;
+/* --- OVERRIDE: HIGH-CONTRAST LIME GREEN REMINDERS FOR PAGE 3 --- */
+
+/* Ginawa nating mas specific gamit ang ID ng page para sure na gagana */
+#page-3 .answer-reminders {
+    margin-top: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+    display: block !important;
 }
 
-/* Title text: Bold, Black */
-.reminder-title {
-    font-weight: 800; /* Boldest possible */
-    margin-bottom: 0.3rem;
-    font-size: 1.1rem;
+/* Pinilit nating i-override ang background at font color */
+#page-3 .reminder-card {
+    display: flex !important;
+    gap: 20px !important;
+    padding: 1.5rem !important;
+    border-radius: 12px !important;
+    margin-bottom: 1.2rem !important;
+    align-items: flex-start !important;
+    border: none !important;
+    
+    /* Solid High-Contrast White Background with Vibrant Lime Green Edges (#a6ff00) */
+    background: linear-gradient(
+        90deg,
+        #a6ff00 0%, 
+        #a6ff00 8px, 
+        #ffffff 8px, 
+        #ffffff calc(100% - 8px), 
+        #a6ff00 calc(100% - 8px), 
+        #a6ff00 100%
+    ) !important;
+    
+    /* Matapang na shadow para umangat sa page */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* Description text: Black */
-.reminder-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    font-weight: 500; /* Semi-bold para sa extra legibility */
+/* Siguraduhing Kulay Itim at Bold ang Text (High Contrast) */
+#page-3 .reminder-card .reminder-title {
+    color: #000000 !important;
+    font-weight: 800 !important;
+    font-size: 1.15rem !important;
+    margin-bottom: 0.4rem !important;
+    opacity: 1 !important; /* Tinanggal ang pagka-dimmed */
 }
 
-/* (Optional: Override any residual unique color classes) */
-.reminder-purple,
-.lime-instruction-box {
-    background-image: inherit !important;
-    color: inherit !important;
-    border-left: none !important;
+#page-3 .reminder-card .reminder-text {
+    color: #111111 !important;
+    font-weight: 600 !important; /* Kapal para madaling basahin */
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+    opacity: 1 !important; /* Tinanggal ang pagka-dimmed */
+}
+
+/* Kulay ng Icon SVG para maging match sa Lime Green o Black */
+#page-3 .reminder-card .reminder-icon svg {
+    stroke: #000000 !important; /* Ginawang solid black ang icon outline */
+    opacity: 1 !important;
 }
     
