@@ -39,13 +39,10 @@ h1, h2, h3, h4, .nav-brand {
 /* Video Background Holder */
 .video-bg-container {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    top: 0; /* FIXED: Mas safe kesa sa top: 50% kung full screen fluid background ang hanap */
+    left: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     z-index: -10;
     pointer-events: none;
@@ -53,11 +50,13 @@ h1, h2, h3, h4, .nav-brand {
 
 /* MOBILE VIDEO CENTER FIX */
 @media (max-width: 768px) {
-    .bg-video {
+    /* FIXED: Pinalitan ang .bg-video ng tamang target selector selector */
+    .video-bg-container video { 
         width: auto;
         height: 100vh;
-        min-width: auto;
+        min-width: 100%;
         min-height: 100vh;
+        object-fit: cover;
     }
 }
 
@@ -452,8 +451,10 @@ nav {
     box-shadow: 0 8px 20px rgba(125,57,235,0.22);
 }
 
+/* FIXED: Binago mula white patungong dark purple para mabasa sa kremang papel */
 #page-2 .section-title {
-    color: white;
+    color: #3D2352; 
+    text-shadow: none;
 }
 
 #page-2 .card.glass * {
@@ -573,7 +574,7 @@ nav {
     box-shadow: 0 8px 20px rgba(125,57,235,0.22);
 }
 
-/* CHANGED: Dark lila na ito para mabasa sa Page 3 paper stack */
+/* FIXED: Binago mula white patungong dark purple para mabasa sa kremang papel */
 #page-3 .section-title {
     color: #3D2352;
     text-shadow: none;
@@ -588,19 +589,17 @@ nav {
    NEW LIME GLOW BOX REMINDER LAYOUT (FLOATING & ANIMATION READY)
    ========================================================================== */
 
-/* Parent Container na nagbibigay ng room sa neon glow para hindi tabas */
 .answer-reminders {
     display: flex;
     flex-direction: column;
     gap: 2rem;
     margin-top: 1.5rem;
     margin-bottom: 2rem;
-    padding: 20px !important; /* Nilakihan para sa floating movement space */
+    padding: 20px !important;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Base card para sa dalawang paalala (May Floating Effect, Naka-tuwid vs Paper rotation) */
 .reminder-card, 
 .lime-instruction-box {
     display: flex !important;
@@ -611,14 +610,8 @@ nav {
     -webkit-backdrop-filter: blur(24px);
     box-sizing: border-box;
     overflow: visible !important; 
-    
-    /* Binalik sa 0deg para kapag pumasok sa nakatagilig na Page 3, maging malinis at pantay tingnan */
     transform: rotate(0deg) translateY(0); 
-    
-    /* Patuloy na floating effect (pataas-pababa) */
     animation: floatingBox 4s ease-in-out infinite alternate;
-    
-    /* Para sa pop-up transition mamaya gamit ang JS */
     opacity: 0;
     scale: 0.8;
     transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), 
@@ -626,30 +619,22 @@ nav {
                 transform 0.3s ease;
 }
 
-/* Offset ang panahong lumulutang ang pangalawang box para hindi sila sabay na parang robot */
 .reminder-card:nth-child(even),
 .lime-instruction-box:nth-child(even) {
     animation-delay: 0.5s;
 }
 
-/* KAPAG ACTIVE NA ANG PAGE: Ito ang class na ikakabit ng JS para mag pop-up */
 .answer-reminders.animate-pop .reminder-card,
 .answer-reminders.animate-pop .lime-instruction-box {
     opacity: 1;
     scale: 1;
 }
 
-/* Floating Animation Keyframes (Pinatag muna ang rotation para hindi mag-wobble nang kakaiba) */
 @keyframes floatingBox {
-    0% {
-        transform: rotate(0deg) translateY(0px);
-    }
-    100% {
-        transform: rotate(0deg) translateY(-8px); /* Angat ng 8px */
-    }
+    0% { transform: rotate(0deg) translateY(0px); }
+    100% { transform: rotate(0deg) translateY(-8px); }
 }
 
-/* Icon layout at sariling pop-up delay para maunang lumitaw ang box bago mag-pop ang icon */
 .reminder-icon {
     display: flex;
     align-items: center;
@@ -658,17 +643,14 @@ nav {
     width: 24px;
     height: 24px;
     margin-top: 0.15rem;
-    
-    /* Pop animation para sa icon */
     scale: 0;
     transition: scale 0.5s cubic-bezier(0.34, 1.75, 0.64, 1) 0.3s; 
 }
 
 .answer-reminders.animate-pop .reminder-icon {
-    scale: 1; /* Magpa-pop up ang icon matapos ang 0.3s */
+    scale: 1;
 }
 
-/* Pwersahang ginawang Neon Lime Green pati ang SVG Icons */
 .reminder-icon svg {
     width: 100%;
     height: 100%;
@@ -676,7 +658,6 @@ nav {
     filter: drop-shadow(0 0 6px rgba(163, 230, 53, 0.7));
 }
 
-/* Content wrapper (Sabay na lilitaw ang texts sa pag-fade in ng box) */
 .reminder-content {
     flex: 1;
     display: flex;
@@ -684,19 +665,16 @@ nav {
     gap: 0.5rem;
 }
 
-/* DARK GLOW THEME: Bagay sa kremang papel para lutang ang neon glow kahit maliwanag ang likod */
 .reminder-purple, 
 .lime-instruction-box {
-    background: rgba(20, 20, 20, 0.92) !important; /* Ginawang madilim ang loob ng box para lumitaw ang neon at mabasa ang puting text */
-    border: 2px solid #a3e635 !important; /* Pinalakas ang neon green border */
-    
+    background: rgba(20, 20, 20, 0.92) !important; 
+    border: 2px solid #a3e635 !important; 
     box-shadow: 
         0 15px 35px rgba(0, 0, 0, 0.25),
         0 0 20px rgba(163, 230, 53, 0.35),
         inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Kulay ng Headers/Titles */
 .reminder-purple .reminder-title,
 .lime-instruction-box .reminder-title,
 .reminder-content h4 {
@@ -707,7 +685,6 @@ nav {
     text-shadow: 0 0 10px rgba(163, 230, 53, 0.4);
 }
 
-/* Kulay ng description copy (Kontrastado na sa loob ng maitim na box) */
 .reminder-content p, 
 .reminder-text {
     color: rgba(255, 255, 255, 0.95) !important;
