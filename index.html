@@ -1,452 +1,447 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Growthory.co</title>
-    <link rel="shortcut icon" href="data:image/png;base64,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"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="style.css?v=2" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Growthory.co</title>
+    <link rel="shortcut icon" href="data:image/png;base64,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"/>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;family=Outfit:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <link href="style.css?v=2" rel="stylesheet"/>
 </head>
 <body>
-<div class="video-bg-container">
-<video autoplay="" id="bg-video" loop="" muted="" playsinline="">
-<source src="https://res.cloudinary.com/dz5zpyt8n/video/upload/v1779093383/22_oyhhbi.mp4"/>
-</video>
-</div>
-<div class="progress-container">
-<div class="progress-fill" id="progress"></div>
-</div>
-<nav>
-<div class="nav-logo-container">
-<div class="nav-brand">Growthory<span>.</span>Labs</div>
-</div>
-<div class="nav-steps">
-<div class="nav-step active" id="nav-1" onclick="handleNavClick(1)">1. Overview</div>
-<div class="nav-step" id="nav-2" onclick="handleNavClick(2)">2. Info</div>
-<div class="nav-step" id="nav-3" onclick="handleNavClick(3)">3. Café</div>
-<div class="nav-step" id="nav-4" onclick="handleNavClick(4)">4. Pay</div>
-</div>
-</nav>
-
-<div class="page active" id="page-1">
-<div class="container">
-<div class="hero">
-<div class="hero-tag">Café Content Starter Pack</div>
-<h1>Turn first-time visitors into<br/><em>loyal regulars</em></h1>
-<p>A complete content system built specifically for café owners — so you never run out of ideas or stare at a blank caption again.</p>
-<div class="price-badge">
-<span class="price-amount">₱1,200</span>
-<span class="price-label">one-time · delivered in 48 hours</span>
-</div>
-</div>
-<div class="section-header">
-<h2 class="section-title">What you're getting</h2>
-<p class="section-sub">Three things that work together to build your content presence from scratch.</p>
-</div>
-<div class="deliverable glass">
-<div class="d-icon">🌐</div>
-<div>
-<div class="d-title">30-Day Social Media Roadmap (Interactive Website)</div>
-<div class="d-sub">A fun, day-by-day online guide that tells you exactly what to post and do on social media so more people discover your cafe every single day.</div>
-</div>
-</div>
-<div class="deliverable glass">
-<div class="d-icon">📄</div>
-<div>
-<div class="d-title">Branding &amp; Product Positioning Report (Full PDF)</div>
-<div class="d-sub">A detailed report that studies your cafe's look, menu, and overall feel — then gives you clear, practical recommendations to make customers want to come back.</div>
-</div>
-</div>
-<div class="deliverable glass">
-<div class="d-icon">💬</div>
-<div>
-<div class="d-title">7-Day Private Consultation (via Messaging)</div>
-<div class="d-sub">Seven days of direct access to a consultant through your preferred messaging app, so you can ask questions and get personalized guidance anytime you need it.</div>
-</div>
-</div>
-<div class="delivery-highlight glass">
-<div class="delivery-icon">📦</div>
-<div class="delivery-text">
-        All materials are delivered to your email within 48 hours of receiving your intake form and confirmed payment.
+    <div class="video-bg-container">
+        <video autoplay="" id="bg-video" loop="" muted="" playsinline="">
+            <source src="https://res.cloudinary.com/dz5zpyt8n/video/upload/v1779093383/22_oyhhbi.mp4"/>
+        </video>
     </div>
-</div>
-<hr/>
-<div class="section-header">
-<h2 class="section-title">How it works</h2>
-</div>
-<div class="timeline">
-<div class="timeline-step">
-<div class="t-num">1</div>
-<div class="t-title">You fill in this form</div>
-<div class="t-sub">Your basic info and your café details. Takes about 5–8 minutes. This is how I personalize everything for your specific café.</div>
-</div>
-<div class="timeline-step">
-<div class="t-num">2</div>
-<div class="t-title">You complete payment</div>
-<div class="t-sub">GCash, Maya, or bank transfer. Send your proof of payment via the details on the payment page.</div>
-</div>
-<div class="timeline-step">
-<div class="t-num">3</div>
-<div class="t-title">I confirm and start work</div>
-<div class="t-sub">You'll receive a confirmation message from me on the contact you provided. I review your form answers and begin building.</div>
-</div>
-<div class="timeline-step">
-<div class="t-num">4</div>
-<div class="t-title">Review & Content Drafts</div>
-<div class="t-sub">Starting from delivery, I'm available daily for 7 days to answer questions, review your first posts, and help you properly implement the system.</div>
-</div>
-<div class="timeline-step">
-<div class="t-num">5</div>
-<div class="t-title">Deliverables sent within 48 hours</div>
-<div class="t-sub">You'll receive the HTML file, PDF playbook, and positioning document — all organized in one email with clear instructions on how to use each part effectively.</div>
-</div>
-<div class="timeline-step">
-<div class="t-num">6</div>
-<div class="t-title">Your 1-week support window begins</div>
-<div class="t-sub">Starting from delivery, I'm available daily for 7 days to answer questions, review your first posts, and help you properly implement the system.</div>
-</div>
-</div>
-<hr/>
-<div class="section-header">
-<h2 class="section-title">Service agreement &amp; disclosures</h2>
-<p class="section-sub">Please read before proceeding. By completing this form and making payment, you agree to the following.</p>
-</div>
-<div class="agreement-grid">
-<div class="agreement-box glass">
-<h3>Scope of service</h3>
-<p>This package covers one café business only. Deliverables include one HTML growth delivery site, one PDF content playbook, one positioning document, and seven days of messaging support. Posting, account management, and implementation are not included.</p>
-</div>
-<div class="agreement-box glass">
-<h3>Delivery timeline</h3>
-<p>Work begins only after both a completed intake form and confirmed payment are received. Deliverables are sent within 48 hours unless delays occur due to incomplete or unclear responses.</p>
-</div>
-<div class="agreement-box glass">
-<h3>Payment &amp; refund policy</h3>
-<p>Full payment is required before work begins. Payments become non-refundable once work has started. If Growthery Labs is unable to fulfill the order, a full refund will be issued.</p>
-</div>
-<div class="agreement-box glass">
-<h3>Confidentiality</h3>
-<p>All business information shared remains confidential and is used solely for creating your deliverables. Nothing will be shared publicly without permission.</p>
-</div>
-<div class="agreement-box glass">
-<h3>Results disclaimer</h3>
-<p>Growthery Labs provides systems and guidance. Results depend on the consistency and execution of the client. Specific revenue or growth outcomes cannot be guaranteed.</p>
-</div>
-<div class="agreement-box glass">
-<h3>Intellectual property</h3>
-<p>Upon full payment, you may use the delivered materials for your café business. Reselling or redistributing the frameworks is prohibited.</p>
-</div>
-<div class="agreement-box glass">
-<h3>Support scope</h3>
-<p>The 7-day support period includes posting guidance, feedback, and questions regarding your deliverables during Philippine business hours.</p>
-</div>
-</div>
-<div class="btn-container">
-<button class="btn btn-primary" onclick="showPage(2)">I've read this — let's get started →</button>
-</div>
-</div>
-</div>
-
-<div class="page" id="page-2">
-<div class="container">
-<div class="hero-tag">Step 2 of 4</div>
-<div class="section-header">
-<h2 class="section-title">Your basic information</h2>
-<p class="section-sub">This is how we'll contact you and where your deliverables will be sent.</p>
-</div>
-<div class="card glass">
-<div class="paper-tape tape-left"></div>
-<div class="paper-tape tape-right"></div>
-<div class="form-group">
-<label>First name <span>*</span></label>
-<input id="fname" placeholder="e.g. Maria" type="text"/>
-</div>
-<div class="form-group">
-<label>Last name <span>*</span></label>
-<input id="lname" placeholder="e.g. Santos" type="text"/>
-</div>
-<div class="form-group">
-<label>Email address <span>*</span></label>
-<input id="email" placeholder="yourname@email.com" type="email"/>
-</div>
-<div class="form-group">
-<label>Mobile number <span>*</span></label>
-<input id="phone" placeholder="e.g. 09XX XXX XXXX" type="tel"/>
-</div>
-<div class="form-group">
-<label>Preferred platform <span>*</span></label>
-<div class="box-option-group">
-<div class="box-option"><input id="p1" name="platform" type="radio" value="Messenger"/><label for="p1">Messenger</label></div>
-<div class="box-option"><input id="p2" name="platform" type="radio" value="Viber"/><label for="p2">Viber</label></div>
-<div class="box-option"><input id="p3" name="platform" type="radio" value="WhatsApp"/><label for="p3">WhatsApp</label></div>
-</div>
-</div> 
-<div class="form-group">
-<label>Your Facebook or Instagram profile URL <span>*</span></label>
-<input id="social-url" placeholder="e.g. https://instagram.com/yourcafe" type="text"/>
-</div>
-<div class="form-group">
-<label>City / Municipality <span>*</span></label>
-<input id="city" placeholder="e.g. Dasmariñas, Cavite" type="text"/>
-</div>
-</div>
-<div class="privacy-note">
-<div class="privacy-icon">🔒</div>
-<div class="privacy-text">Your email and contact details are kept private. They are used only to deliver your materials and provide your 1-week support. We will never share them with third parties.</div>
-</div>
-<div class="btn-container">
-<button class="btn btn-seconday" onclick="showPage(1)">← Back</button>
-<button class="btn btn-primary" onclick="goToPage3()">Continue to café questions →</button>
-</div>
-</div>
-</div>
-
-<div class="page" id="page-3">
-<div class="container">
-<div class="hero-tag">Step 3 of 4</div>
-<div class="section-header">
-    <h2 class="section-title">Tell me about your café</h2>
-
-    <p class="section-sub">
-        These answers are what I use to personalize every single deliverable.
-    </p>
-</div>
-    <div class="answer-reminders">
     
-        <div class="reminder-card reminder-purple">
-
-            <div class="reminder-icon">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more-icon lucide-message-square-more"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M12 11h.01"/><path d="M16 11h.01"/><path d="M8 11h.01"/></svg>
-
-            <div class="reminder-content">
-
-                <div class="reminder-title">
-                    Tagalog or Taglish is totally okay
-                </div>
-
-                <div class="reminder-text">
-                    Kahit casual lang yung sagot mo, okay lang.
-                    Mas importante na natural at honest yung answers mo para mas accurate at personalized yung strategy na mabibigay.
-                </div>
-
-            </div>
+    <div class="progress-container">
+        <div class="progress-fill" id="progress"></div>
+    </div>
+    
+    <nav>
+        <div class="nav-logo-container">
+            <div class="nav-brand">Growthory<span>.</span>Labs</div>
         </div>
+        <div class="nav-steps">
+            <div class="nav-step active" id="nav-1" onclick="handleNavClick(1)">1. Overview</div>
+            <div class="nav-step" id="nav-2" onclick="handleNavClick(2)">2. Info</div>
+            <div class="nav-step" id="nav-3" onclick="handleNavClick(3)">3. Café</div>
+            <div class="nav-step" id="nav-4" onclick="handleNavClick(4)">4. Pay</div>
+        </div>
+    </nav>
 
-        <div class="reminder-card lime-instruction-box">
-
-            <div class="reminder-icon">
-
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain-icon lucide-brain"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+    <!-- PAGE 1: OVERVIEW -->
+    <div class="page active" id="page-1">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-tag">Café Content Starter Pack</div>
+                <h1>Turn first-time visitors into<br/><em>loyal regulars</em></h1>
+                <p>A complete content system built specifically for café owners — so you never run out of ideas or stare at a blank caption again.</p>
+                <div class="price-badge">
+                    <span class="price-amount">₱1,200</span>
+                    <span class="price-label">one-time · delivered in 48 hours</span>
+                </div>
+            </div>
             
+            <div class="section-header">
+                <h2 class="section-title">What you're getting</h2>
+                <p class="section-sub">Three things that work together to build your content presence from scratch.</p>
             </div>
-
-            <div class="reminder-content">
-
-                <div class="reminder-title">
-                    Make your answers complete and detailed
+            
+            <div class="deliverable glass">
+                <div class="d-icon">🌐</div>
+                <div>
+                    <div class="d-title">30-Day Social Media Roadmap (Interactive Website)</div>
+                    <div class="d-sub">A fun, day-by-day online guide that tells you exactly what to post and do on social media so more people discover your cafe every single day.</div>
                 </div>
-
-                <div class="reminder-text">
-                    The more context and examples you give, the better the final content system, branding suggestions, and growth ideas will be for your café.
+            </div>
+            
+            <div class="deliverable glass">
+                <div class="d-icon">📄</div>
+                <div>
+                    <div class="d-title">Branding &amp; Product Positioning Report (Full PDF)</div>
+                    <div class="d-sub">A detailed report that studies your cafe's look, menu, and overall feel — then gives you clear, practical recommendations to make customers want to come back.</div>
                 </div>
-
+            </div>
+            
+            <div class="deliverable glass">
+                <div class="d-icon">💬</div>
+                <div>
+                    <div class="d-title">7-Day Private Consultation (via Messaging)</div>
+                    <div class="d-sub">Seven days of direct access to a consultant through your preferred messaging app, so you can ask questions and get personalized guidance anytime you need it.</div>
+                </div>
+            </div>
+            
+            <div class="delivery-highlight glass">
+                <div class="delivery-icon">📦</div>
+                <div class="delivery-text">
+                    All materials are delivered to your email within 48 hours of receiving your intake form and confirmed payment.
+                </div>
+            </div>
+            
+            <hr/>
+            
+            <div class="section-header">
+                <h2 class="section-title">How it works</h2>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="t-num">1</div>
+                    <div class="t-title">You fill in this form</div>
+                    <div class="t-sub">Your basic info and your café details. Takes about 5–8 minutes. This is how I personalize everything for your specific café.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="t-num">2</div>
+                    <div class="t-title">You complete payment</div>
+                    <div class="t-sub">GCash, Maya, or bank transfer. Send your proof of payment via the details on the payment page.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="t-num">3</div>
+                    <div class="t-title">I confirm and start work</div>
+                    <div class="t-sub">You'll receive a confirmation message from me on the contact you provided. I review your form answers and begin building.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="t-num">4</div>
+                    <div class="t-title">Review & Content Drafts</div>
+                    <div class="t-sub">Starting from delivery, I'm available daily for 7 days to answer questions, review your first posts, and help you properly implement the system.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="t-num">5</div>
+                    <div class="t-title">Deliverables sent within 48 hours</div>
+                    <div class="t-sub">You'll receive the HTML file, PDF playbook, and positioning document — all organized in one email with clear instructions on how to use each part effectively.</div>
+                </div>
+                <div class="timeline-step">
+                    <div class="t-num">6</div>
+                    <div class="t-title">Your 1-week support window begins</div>
+                    <div class="t-sub">Starting from delivery, I'm available daily for 7 days to answer questions, review your first posts, and help you properly implement the system.</div>
+                </div>
+            </div>
+            
+            <hr/>
+            
+            <div class="section-header">
+                <h2 class="section-title">Service agreement &amp; disclosures</h2>
+                <p class="section-sub">Please read before proceeding. By completing this form and making payment, you agree to the following.</p>
+            </div>
+            
+            <div class="agreement-grid">
+                <div class="agreement-box glass">
+                    <h3>Scope of service</h3>
+                    <p>This package covers one café business only. Deliverables include one HTML growth delivery site, one PDF content playbook, one positioning document, and seven days of messaging support. Posting, account management, and implementation are not included.</p>
+                </div>
+                <div class="agreement-box glass">
+                    <h3>Delivery timeline</h3>
+                    <p>Work begins only after both a completed intake form and confirmed payment are received. Deliverables are sent within 48 hours unless delays occur due to incomplete or unclear responses.</p>
+                </div>
+                <div class="agreement-box glass">
+                    <h3>Payment &amp; refund policy</h3>
+                    <p>Full payment is required before work begins. Payments become non-refundable once work has started. If Growthery Labs is unable to fulfill the order, a full refund will be issued.</p>
+                </div>
+                <div class="agreement-box glass">
+                    <h3>Confidentiality</h3>
+                    <p>All business information shared remains confidential and is used solely for creating your deliverables. Nothing will be shared publicly without permission.</p>
+                </div>
+                <div class="agreement-box glass">
+                    <h3>Results disclaimer</h3>
+                    <p>Growthery Labs provides systems and guidance. Results depend on the consistency and execution of the client. Specific revenue or growth outcomes cannot be guaranteed.</p>
+                </div>
+                <div class="agreement-box glass">
+                    <h3>Intellectual property</h3>
+                    <p>Upon full payment, you may use the delivered materials for your café business. Reselling or redistributing the frameworks is prohibited.</p>
+                </div>
+                <div class="agreement-box glass">
+                    <h3>Support scope</h3>
+                    <p>The 7-day support period includes posting guidance, feedback, and questions regarding your deliverables during Philippine business hours.</p>
+                </div>
+            </div>
+            
+            <div class="btn-container">
+                <button class="btn btn-primary" onclick="showPage(2)">I've read this — let's get started →</button>
             </div>
         </div>
+    </div>
 
-<div class="card glass">
-<div class="form-group">
-<label>Café name <span>*</span></label>
-<input id="cafe-name" placeholder="e.g. The Quiet Cup" type="text"/>
-</div>
-<div class="form-group">
-<label>Café location(s) <span>*</span></label>
-<textarea id="cafe-location" placeholder="Address, City, Province, Country"></textarea>
-</div>
-<div class="form-group">
-<label>Type of café <span>*</span></label>
-<div class="box-option-group">
-<div class="box-option"><input id="ct1" name="cafe-type" type="radio" value="Specialty Coffee Shop"/><label for="ct1">Specialty Coffee</label></div>
-<div class="box-option"><input id="ct2" name="cafe-type" type="radio" value="Bakery Cafe"/><label for="ct2">Bakery Café</label></div>
-<div class="box-option"><input id="ct3" name="cafe-type" type="radio" value="Brunch Cafe"/><label for="ct3">Brunch Café</label></div>
-<div class="box-option"><input id="ct4" name="cafe-type" type="radio" value="Grab-and-Go"/><label for="ct4">Grab-and-Go</label></div>
-</div>
-</div>
-<div class="form-group">
-<label>Years in operation <span>*</span></label>
-<div class="box-option-group">
-<div class="box-option"><input id="yr1" name="years" type="radio" value="Under 1 year"/><label for="yr1">Under 1 year</label></div>
-<div class="box-option"><input id="yr2" name="years" type="radio" value="1–2 years"/><label for="yr2">1–2 years</label></div>
-<div class="box-option"><input id="yr3" name="years" type="radio" value="3–5 years"/><label for="yr3">3–5 years</label></div>
-<div class="box-option"><input id="yr4" name="years" type="radio" value="5+ years"/><label for="yr4">5+ years</label></div>
-</div>
-</div>
-<div class="form-group">
-<label>Target audience description <span>*</span></label>
-<textarea id="target-audience" placeholder="Students, remote workers, families, tourists, etc."></textarea>
-</div>
-<div class="form-group">
-<label>Unique selling proposition (USP) <span>*</span></label>
-<textarea id="usp" placeholder="What makes your café stand out from competitors?"></textarea>
-</div>
-<div class="form-group">
-<label>Website / social media links</label>
-<textarea id="social-links" placeholder="Instagram, Facebook, Website, Google Business"></textarea>
-</div>
-<div class="form-group">
-<label>When do you usually experience empty seats?</label>
-<textarea id="empty-seats" placeholder="Specific days, times, seasons, etc."></textarea>
-</div>
-<div class="form-group">
-<label>Why do you think customers don’t return?</label>
-<textarea id="low-repeat" placeholder="What prevents customers from coming back?"></textarea>
-</div>
-<div class="form-group">
-<label>Current loyalty or retention efforts</label>
-<textarea id="loyalty-program" placeholder="Loyalty cards, promos, follow-ups, etc."></textarea>
-</div>
-<div class="form-group">
-<label>What kind of customers do you find difficult to handle?</label>
-<textarea id="inconvenient-customers" placeholder="Behaviors or situations that affect operations"></textarea>
-</div>
-<div class="form-group">
-<label>Brand personality <span>*</span></label>
-<div class="box-option-group">
-<div class="box-option"><input id="bp1" name="brand-personality" type="checkbox" value="Cozy"/><label for="bp1">Cozy</label></div>
-<div class="box-option"><input id="bp2" name="brand-personality" type="checkbox" value="Modern"/><label for="bp2">Modern</label></div>
-<div class="box-option"><input id="bp3" name="brand-personality" type="checkbox" value="Minimalist"/><label for="bp3">Minimalist</label></div>
-<div class="box-option"><input id="bp4" name="brand-personality" type="checkbox" value="Rustic"/><label for="bp4">Rustic</label></div>
-<div class="box-option"><input id="bp5" name="brand-personality" type="checkbox" value="Vibrant"/><label for="bp5">Vibrant</label></div>
-</div>
-</div>
-<div class="form-group">
-<label>Current content platforms</label>
-<textarea id="content-platforms" placeholder="Instagram, TikTok, Facebook, etc."></textarea>
-</div>
-<div class="form-group">
-<label>Biggest challenge in content creation</label>
-<textarea id="content-challenge" placeholder="Consistency, ideas, editing, engagement, etc."></textarea>
-</div>
-<div class="form-group">
-<label>Existing content that can be repurposed</label>
-<textarea id="repurpose-content" placeholder="Photos, menus, videos, event posters, etc."></textarea>
-</div>
-<div class="form-group">
-<label>Typical customer experience</label>
-<textarea id="customer-experience" placeholder="Describe the experience from entering to leaving"></textarea>
-</div>
-<div class="form-group">
-<label>How do you collect customer feedback?</label>
-<textarea id="feedback-methods" placeholder="Reviews, surveys, comment cards, etc."></textarea>
-</div>
-<div class="form-group">
-<label>Primary business goal <span>*</span></label>
-<textarea id="primary-goal" placeholder="Main outcome you want to achieve"></textarea>
-</div>
-<div class="form-group">
-<label>Specific goals for the next 3–6 months</label>
-<textarea id="specific-goals" placeholder="% increase in repeat customers, fewer empty seats, etc."></textarea>
-</div>
-<div class="form-group">
-<label>What do you expect from the roadmap?</label>
-<textarea id="roadmap-expectations" placeholder="What would make this successful for you?"></textarea>
-</div>
-<div class="form-group">
-<label>Average daily or weekly customer count</label>
-<input id="customer-count" placeholder="e.g. 80 customers/day" type="text"/>
-</div>
-<div class="form-group">
-<label>Average transaction value</label>
-<input id="transaction-value" placeholder="e.g. ₱180" type="text"/>
-</div>
-<div class="form-group">
-<label>Peak hours / days</label>
-<input id="peak-hours" placeholder="e.g. Weekends, 2PM–7PM" type="text"/>
-</div>
-<div class="form-group">
-<label>Slow hours / days</label>
-<input id="slow-hours" placeholder="e.g. Mondays, mornings" type="text"/>
-</div>
-<div class="form-group">
-<label>Top 3 best-selling items? <span>*</span></label>
-<textarea id="bestsellers" placeholder="e.g. 1. Brown sugar latte, 2. Matcha croissant..."></textarea>
-</div>
-<div class="form-group">
-<label>Average price range? <span>*</span></label>
-<div class="box-option-group">
-<div class="box-option"><input id="pr1" name="price" type="radio" value="Under ₱100"/><label for="pr1">Under ₱100</label></div>
-<div class="box-option"><input id="pr2" name="price" type="radio" value="₱100–₱200"/><label for="pr2">₱100–₱200</label></div>
-<div class="box-option"><input id="pr3" name="price" type="radio" value="₱200–₱350"/><label for="pr3">₱200–₱350</label></div>
-<div class="box-option"><input id="pr4" name="price" type="radio" value="₱350+"/><label for="pr4">₱350+</label></div>
-</div>
-</div>
-<div class="form-group">
-<label>What is the story behind your café? <span>*</span></label>
-<textarea id="story" placeholder="Why did you open it? This becomes your brand story..."></textarea>
-</div>
-</div>
-<div class="btn-container">
-<button class="btn btn-seconday" onclick="showPage(2)">← Back</button>
-<button class="btn btn-primary" onclick="validateAndGoToPage4()">Proceed to payment →</button>
-</div>
-</div>
-</div>
+    <!-- PAGE 2: BASIC INFO -->
+    <div class="page" id="page-2">
+        <div class="container">
+            <div class="hero-tag">Step 2 of 4</div>
+            <div class="section-header">
+                <h2 class="section-title">Your basic information</h2>
+                <p class="section-sub">This is how we'll contact you and where your deliverables will be sent.</p>
+            </div>
+            <div class="card glass">
+                <div class="paper-tape tape-left"></div>
+                <div class="paper-tape tape-right"></div>
+                <div class="form-group">
+                    <label>First name <span>*</span></label>
+                    <input id="fname" placeholder="e.g. Maria" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Last name <span>*</span></label>
+                    <input id="lname" placeholder="e.g. Santos" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Email address <span>*</span></label>
+                    <input id="email" placeholder="yourname@email.com" type="email"/>
+                </div>
+                <div class="form-group">
+                    <label>Mobile number <span>*</span></label>
+                    <input id="phone" placeholder="e.g. 09XX XXX XXXX" type="tel"/>
+                </div>
+                <div class="form-group">
+                    <label>Preferred platform <span>*</span></label>
+                    <div class="box-option-group">
+                        <div class="box-option"><input id="p1" name="platform" type="radio" value="Messenger"/><label for="p1">Messenger</label></div>
+                        <div class="box-option"><input id="p2" name="platform" type="radio" value="Viber"/><label for="p2">Viber</label></div>
+                        <div class="box-option"><input id="p3" name="platform" type="radio" value="WhatsApp"/><label for="p3">WhatsApp</label></div>
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label>Your Facebook or Instagram profile URL <span>*</span></label>
+                    <input id="social-url" placeholder="e.g. https://instagram.com/yourcafe" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>City / Municipality <span>*</span></label>
+                    <input id="city" placeholder="e.g. Dasmariñas, Cavite" type="text"/>
+                </div>
+            </div>
+            <div class="privacy-note">
+                <div class="privacy-icon">🔒</div>
+                <div class="privacy-text">Your email and contact details are kept private. They are used only to deliver your materials and provide your 1-week support. We will never share them with third parties.</div>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-seconday" onclick="showPage(1)">← Back</button>
+                <button class="btn btn-primary" onclick="goToPage3()">Continue to café questions →</button>
+            </div>
+        </div>
+    </div>
 
-<div class="page" id="page-4">
-<div class="container">
-<div class="hero-tag">Step 4 of 4</div>
-<div class="section-header">
-<h2 class="section-title">Complete your payment</h2>
-<p class="section-sub">Choose your preferred method and confirm your order below.</p>
-</div>
-<div class="checkout-paper">
-<div class="receipt-tape tape-left"></div>
-<div class="receipt-tape tape-right"></div>
-<div class="receipt-header">
-<div>
-<div class="receipt-label">ORDER SUMMARY</div>
-<div class="receipt-title">Café Content Starter Pack</div>
-</div>
-<div class="receipt-price">₱1,200</div>
-</div>
-<div class="receipt-divider"></div>
-<div class="receipt-list">
-<div class="receipt-item"><span>30-Day Social Media Roadmap (Interactive Website)</span><strong>Included</strong></div>
-<div class="receipt-item"><span>Branding &amp; Product Positioning Report (Full PDF)</span><strong>Included</strong></div>
-<div class="receipt-item"><span>7-Day Private Consultation (via Your Preferred Messaging App)</span><strong>Included</strong></div>
-</div>
-<div class="receipt-divider"></div>
-<div class="supported-methods">
-<div class="method-pill">💚 GCash</div>
-<div class="method-pill">💙 Maya</div>
-<div class="method-pill">💳 Debit/Credit Card</div>
-<div class="method-pill">🏦 Online Banking</div>
-</div>
-<div class="secure-note">Payments are securely processed through PayMongo. We do not store your banking or card information.</div>
-</div>
-<div class="btn-container">
-<button class="btn btn-seconday" onclick="showPage(3)">← Back</button>
-<button class="btn btn-primary" id="paymongo-btn">Continue to Secure Checkout →</button>
-</div>
-</div>
-</div>
+    <!-- PAGE 3: CAFÉ DETAILS -->
+    <div class="page" id="page-3">
+        <div class="container">
+            <div class="hero-tag">Step 3 of 4</div>
+            <div class="section-header">
+                <h2 class="section-title">Tell me about your café</h2>
+                <p class="section-sub">These answers are what I use to personalize every single deliverable.</p>
+            </div>
+            
+            <div class="answer-reminders">
+                <div class="reminder-card reminder-purple">
+                    <div class="reminder-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/><path d="M12 11h.01"/><path d="M16 11h.01"/><path d="M8 11h.01"/></svg>
+                    </div>
+                    <div class="reminder-content">
+                        <div class="reminder-title">Tagalog or Taglish is totally okay</div>
+                        <div class="reminder-text">Kahit casual lang yung sagot mo, okay lang. Mas importante na natural at honest yung answers mo para mas accurate at personalized yung strategy na mabibigay.</div>
+                    </div>
+                </div>
 
-<div class="page" id="page-5">
-<div class="container">
-<div class="success-screen">
-<div class="success-icon">✓</div>
-<h2>You're all set!</h2>
-<p>Your intake form has been submitted and your payment details have been recorded.</p>
-<p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.4);">Questions? Just reply to the message thread where you received this link.</p>
-</div>
-</div>
-</div>
+                <div class="reminder-card lime-instruction-box">
+                    <div class="reminder-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brain"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+                    </div>
+                    <div class="reminder-content">
+                        <div class="reminder-title">Make your answers complete and detailed</div>
+                        <div class="reminder-text">The more context and examples you give, the better the final content system, branding suggestions, and growth ideas will be for your café.</div>
+                    </div>
+                </div>
+            </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="script.js?v=999"></script>
+            <div class="card glass">
+                <div class="form-group">
+                    <label>Café name <span>*</span></label>
+                    <input id="cafe-name" placeholder="e.g. The Quiet Cup" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Café location(s) <span>*</span></label>
+                    <textarea id="cafe-location" placeholder="Address, City, Province, Country"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Type of café <span>*</span></label>
+                    <div class="box-option-group">
+                        <div class="box-option"><input id="ct1" name="cafe-type" type="radio" value="Specialty Coffee Shop"/><label for="ct1">Specialty Coffee</label></div>
+                        <div class="box-option"><input id="ct2" name="cafe-type" type="radio" value="Bakery Cafe"/><label for="ct2">Bakery Café</label></div>
+                        <div class="box-option"><input id="ct3" name="cafe-type" type="radio" value="Brunch Cafe"/><label for="ct3">Brunch Café</label></div>
+                        <div class="box-option"><input id="ct4" name="cafe-type" type="radio" value="Grab-and-Go"/><label for="ct4">Grab-and-Go</label></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Years in operation <span>*</span></label>
+                    <div class="box-option-group">
+                        <div class="box-option"><input id="yr1" name="years" type="radio" value="Under 1 year"/><label for="yr1">Under 1 year</label></div>
+                        <div class="box-option"><input id="yr2" name="years" type="radio" value="1–2 years"/><label for="yr2">1–2 years</label></div>
+                        <div class="box-option"><input id="yr3" name="years" type="radio" value="3–5 years"/><label for="yr3">3–5 years</label></div>
+                        <div class="box-option"><input id="yr4" name="years" type="radio" value="5+ years"/><label for="yr4">5+ years</label></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Target audience description <span>*</span></label>
+                    <textarea id="target-audience" placeholder="Students, remote workers, families, tourists, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Unique selling proposition (USP) <span>*</span></label>
+                    <textarea id="usp" placeholder="What makes your café stand out from competitors?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Website / social media links</label>
+                    <textarea id="social-links" placeholder="Instagram, Facebook, Website, Google Business"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>When do you usually experience empty seats?</label>
+                    <textarea id="empty-seats" placeholder="Specific days, times, seasons, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Why do you think customers don’t return?</label>
+                    <textarea id="low-repeat" placeholder="What prevents customers from coming back?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Current loyalty or retention efforts</label>
+                    <textarea id="loyalty-program" placeholder="Loyalty cards, promos, follow-ups, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What kind of customers do you find difficult to handle?</label>
+                    <textarea id="inconvenient-customers" placeholder="Behaviors or situations that affect operations"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Brand personality <span>*</span></label>
+                    <div class="box-option-group">
+                        <div class="box-option"><input id="bp1" name="brand-personality" type="checkbox" value="Cozy"/><label for="bp1">Cozy</label></div>
+                        <div class="box-option"><input id="bp2" name="brand-personality" type="checkbox" value="Modern"/><label for="bp2">Modern</label></div>
+                        <div class="box-option"><input id="bp3" name="brand-personality" type="checkbox" value="Minimalist"/><label for="bp3">Minimalist</label></div>
+                        <div class="box-option"><input id="bp4" name="brand-personality" type="checkbox" value="Rustic"/><label for="bp4">Rustic</label></div>
+                        <div class="box-option"><input id="bp5" name="brand-personality" type="checkbox" value="Vibrant"/><label for="bp5">Vibrant</label></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Current content platforms</label>
+                    <textarea id="content-platforms" placeholder="Instagram, TikTok, Facebook, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Biggest challenge in content creation</label>
+                    <textarea id="content-challenge" placeholder="Consistency, ideas, editing, engagement, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Existing content that can be repurposed</label>
+                    <textarea id="repurpose-content" placeholder="Photos, menus, videos, event posters, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Typical customer experience</label>
+                    <textarea id="customer-experience" placeholder="Describe the experience from entering to leaving"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>How do you collect customer feedback?</label>
+                    <textarea id="feedback-methods" placeholder="Reviews, surveys, comment cards, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Primary business goal <span>*</span></label>
+                    <textarea id="primary-goal" placeholder="Main outcome you want to achieve"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Specific goals for the next 3–6 months</label>
+                    <textarea id="specific-goals" placeholder="% increase in repeat customers, fewer empty seats, etc."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>What do you expect from the roadmap?</label>
+                    <textarea id="roadmap-expectations" placeholder="What would make this successful for you?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Average daily or weekly customer count</label>
+                    <input id="customer-count" placeholder="e.g. 80 customers/day" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Average transaction value</label>
+                    <input id="transaction-value" placeholder="e.g. ₱180" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Peak hours / days</label>
+                    <input id="peak-hours" placeholder="e.g. Weekends, 2PM–7PM" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Slow hours / days</label>
+                    <input id="slow-hours" placeholder="e.g. Mondays, mornings" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label>Top 3 best-selling items? <span>*</span></label>
+                    <textarea id="bestsellers" placeholder="e.g. 1. Brown sugar latte, 2. Matcha croissant..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Average price range? <span>*</span></label>
+                    <div class="box-option-group">
+                        <div class="box-option"><input id="pr1" name="price" type="radio" value="Under ₱100"/><label for="pr1">Under ₱100</label></div>
+                        <div class="box-option"><input id="pr2" name="price" type="radio" value="₱100–₱200"/><label for="pr2">₱100–₱200</label></div>
+                        <div class="box-option"><input id="pr3" name="price" type="radio" value="₱200–₱350"/><label for="pr3">₱200–₱350</label></div>
+                        <div class="box-option"><input id="pr4" name="price" type="radio" value="₱350+"/><label for="pr4">₱350+</label></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>What is the story behind your café? <span>*</span></label>
+                    <textarea id="story" placeholder="Why did you open it? This becomes your brand story..."></textarea>
+                </div>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-seconday" onclick="showPage(2)">← Back</button>
+                <button class="btn btn-primary" onclick="validateAndGoToPage4()">Proceed to payment →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: PAYMENT -->
+    <div class="page" id="page-4">
+        <div class="container">
+            <div class="hero-tag">Step 4 of 4</div>
+            <div class="section-header">
+                <h2 class="section-title">Complete your payment</h2>
+                <p class="section-sub">Choose your preferred method and confirm your order below.</p>
+            </div>
+            <div class="payment-paper">
+                <div class="receipt-tape tape-left"></div>
+                <div class="receipt-tape tape-right"></div>
+                <div class="receipt-header">
+                    <div>
+                        <div class="receipt-label">ORDER SUMMARY</div>
+                        <div class="receipt-title">Café Content Starter Pack</div>
+                    </div>
+                    <div class="receipt-price">₱1,200</div>
+                </div>
+                <div class="receipt-divider"></div>
+                <div class="receipt-list">
+                    <div class="receipt-item"><span>30-Day Social Media Roadmap (Interactive Website)</span><strong>Included</strong></div>
+                    <div class="receipt-item"><span>Branding &amp; Product Positioning Report (Full PDF)</span><strong>Included</strong></div>
+                    <div class="receipt-item"><span>7-Day Private Consultation (via Your Preferred Messaging App)</span><strong>Included</strong></div>
+                </div>
+                <div class="receipt-divider"></div>
+                <div class="supported-methods">
+                    <div class="method-pill">💚 GCash</div>
+                    <div class="method-pill">💙 Maya</div>
+                    <div class="method-pill">💳 Debit/Credit Card</div>
+                    <div class="method-pill">🏦 Online Banking</div>
+                </div>
+                <div class="secure-note">Payments are securely processed through PayMongo. We do not store your banking or card information.</div>
+            </div>
+            <div class="btn-container">
+                <button class="btn btn-seconday" onclick="showPage(3)">← Back</button>
+                <button class="btn btn-primary" id="paymongo-btn">Continue to Secure Checkout →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: SUCCESS -->
+    <div class="page" id="page-5">
+        <div class="container">
+            <div class="success-screen">
+                <div class="success-icon">✓</div>
+                <h2>You're all set!</h2>
+                <p>Your intake form has been submitted and your payment details have been recorded.</p>
+                <p style="margin-top: 2rem; font-size: 0.9rem; color: rgba(255,255,255,0.4);">Questions? Just reply to the message thread where you received this link.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js?v=999"></script>
 </body>
 </html>
