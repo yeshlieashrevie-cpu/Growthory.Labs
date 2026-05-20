@@ -2192,4 +2192,39 @@ box-shadow:
 
     font-weight: 600;
 }
+
+/* ========================================= */
+/* COOL LIME GLOW BOX PARA SA INSTRUCTIONS   */
+/* ========================================= */
+
+.lime-instruction-box {
+    /* 1. YUNG BOX MISMO */
+    background: rgba(255, 255, 255, 0.6); /* Medyo transparent para kita pa rin yung notebook bg */
+    border: 2px solid rgba(198, 255, 51, 0.8); /* Solid lime outline */
+    border-radius: 12px; /* Smooth rounded corners */
+    padding: 20px 25px;
+    margin-bottom: 30px;
+    
+    /* 2. YUNG ASTIG NA GLOW (Labas at Loob ng box) */
+    box-shadow: 
+        0 0 20px rgba(198, 255, 51, 0.4),  /* Outer glow */
+        inset 0 0 15px rgba(198, 255, 51, 0.1); /* Inner glow */
+        
+    /* 3. YUNG ANIMATION (Para buhay na buhay) */
+    animation: astigLimeGlow 2.5s infinite alternate;
+}
+
+/* YUNG KEYFRAMES PARA SA ANIMATION */
+@keyframes astigLimeGlow {
+    0% {
+        box-shadow: 
+            0 0 15px rgba(198, 255, 51, 0.3), 
+            inset 0 0 10px rgba(198, 255, 51, 0.1);
+    }
+    100% {
+        box-shadow: 
+            0 0 35px rgba(198, 255, 51, 0.9), /* Mas malakas na ilaw */
+            inset 0 0 20px rgba(198, 255, 51, 0.3);
+    }
+}
     
