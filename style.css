@@ -923,6 +923,7 @@ nav {
 
     text-shadow:
         0 0 10px rgba(198,255,51,0.22);
+}
 
 .reminder-text {
 
@@ -935,6 +936,7 @@ nav {
 
     text-shadow:
         0 0 10px rgba(198,255,51,0.12);
+}
 
 /* Mobile */
 @media (max-width: 768px) {
