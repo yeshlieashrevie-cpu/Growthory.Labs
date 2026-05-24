@@ -665,7 +665,7 @@ nav {
 }
 
 .deliverable:nth-child(even) {
-    transform: translateX(40px);
+    transform: translateX(0px);
 }
 
 .delivery-highlight {
