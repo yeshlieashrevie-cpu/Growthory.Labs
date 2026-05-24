@@ -335,6 +335,68 @@ nav {
     border: 1px solid rgba(198,255,51,0.2);
 }
 
+/* Desktop recommendation banner */
+
+.desktop-banner {
+    width: 100%;
+    overflow: hidden;
+
+    background: var(--lime);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    padding: 0.75rem 0;
+
+    position: sticky;
+    top: 96px; /* adjust if nav height changes */
+
+    z-index: 999;
+}
+
+.desktop-banner-track {
+    display: flex;
+    width: max-content;
+
+    animation: desktopSlide 18s linear infinite;
+}
+
+.desktop-banner-track span {
+    padding-right: 4rem;
+
+    color: #000;
+
+    font-weight: 800;
+
+    font-size: 0.85rem;
+
+    letter-spacing: 0.6px;
+
+    white-space: nowrap;
+}
+
+@keyframes desktopSlide {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Slightly smaller on phones */
+@media (max-width:768px){
+
+.desktop-banner{
+    padding:0.65rem 0;
+}
+
+.desktop-banner-track span{
+    font-size:0.75rem;
+}
+
+}
+
         /* Pulse Red Animation */
         @keyframes pulseRed {
             0% { background-color: transparent; box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
