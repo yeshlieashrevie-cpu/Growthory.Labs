@@ -550,6 +550,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 </div>
 
+<button
+    class="btn btn-primary"
+    id="paymongo-btn"
+    onclick="startCheckout()">
+
+    CONTINUE TO SECURE CHECKOUT →
+</button>
+
     <!-- PAGE 5: SUCCESS -->
     <div class="page" id="page-5">
         <div class="container">
@@ -564,5 +572,44 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js?v=999"></script>
+
+<script>
+
+async function startCheckout(){
+
+    try{
+
+        const response = await fetch("/create-checkout",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+
+                product:"Cafe Content Starter Pack",
+
+                amount:120000
+
+            })
+        });
+
+        const data = await response.json();
+
+        if(data.checkout_url){
+
+            window.location.href=data.checkout_url;
+        }
+
+    }catch(error){
+
+        console.log(error);
+
+        alert("Unable to launch checkout.");
+    }
+
+}
+
+</script>
+                        
 </body>
 </html>
