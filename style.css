@@ -1194,56 +1194,25 @@ hr {
 
 .desktop-banner-track{
 
-    display:flex;
+display:flex;
 
-    flex-direction:row; /* force horizontal */
+align-items:center;
 
-    align-items:center;
+width:max-content;
 
-    white-space:nowrap;
+gap:80px;
 
-    width:max-content;
-
-    gap:100px;
-
-    animation:bannerScroll 20s linear infinite;
-}
-
-.banner-item{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    gap:12px;
-
-    flex-shrink:0;
-}
-
-.banner-item i{
-
-    font-size:1.3rem;
-
-    color:#000;
-}
-
-.banner-item span{
-
-    color:#000;
-
-    font-size:1.2rem;
-
-    font-weight:800;
+animation:bannerScroll 15s linear infinite;
 }
 
 @keyframes bannerScroll{
 
 from{
-transform:translateX(100%);
+transform:translateX(0);
 }
 
 to{
-transform:translateX(-100%);
+transform:translateX(-50%);
 }
 
 }
