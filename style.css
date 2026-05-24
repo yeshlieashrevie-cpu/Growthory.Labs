@@ -1260,12 +1260,18 @@ height:60px;
 
 }
 
-/* Show only on mobile */
-
-@media (min-width:769px){
+/* Hide banner everywhere by default */
 
 .desktop-banner{
-display:none;
+display:none !important;
+}
+
+/* Show only on phones/tablets */
+
+@media screen and (max-width:768px){
+
+.desktop-banner{
+display:flex !important;
 }
 
 }
