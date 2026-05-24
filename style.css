@@ -277,13 +277,25 @@ nav {
 
 .hero h1 {
     font-size: clamp(2.8rem, 11vw, 5rem);
-    line-height: 1;
+
+    line-height: 1.08;
+
     font-weight: 900;
+
     margin-bottom: 1.5rem;
-    letter-spacing: -3px;
+
+    letter-spacing: -1px; /* was -3px */
+
     color: #FFFFFF;
-    text-shadow: 0 4px 25px rgba(0,0,0,0.45), 0 0 40px rgba(125,57,235,0.18);
-    max-width: 900px;
+
+    text-shadow:
+        0 4px 25px rgba(0,0,0,0.45),
+        0 0 40px rgba(125,57,235,0.18);
+
+    max-width: 100%;
+
+    padding: 0 18px; /* adds left/right breathing room */
+
     margin-inline: auto;
 }
 
