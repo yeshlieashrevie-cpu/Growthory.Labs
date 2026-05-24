@@ -68,7 +68,6 @@ html, body {
 
 .container, .page, .card, .timeline, nav {
     max-width: 100%;
-    overflow-x: hidden;
 }
 
 .video-bg-container video {
@@ -286,6 +285,11 @@ nav {
     text-shadow: 0 4px 25px rgba(0,0,0,0.45), 0 0 40px rgba(125,57,235,0.18);
     max-width: 900px;
     margin-inline: auto;
+}
+
+.hero h1{
+    padding-right:20px;
+    line-height:1.1;
 }
 
 .hero h1 em {
