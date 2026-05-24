@@ -1259,3 +1259,13 @@ height:60px;
 }
 
 }
+
+/* Show only on mobile */
+
+@media (min-width:769px){
+
+.desktop-banner{
+display:none;
+}
+
+}
