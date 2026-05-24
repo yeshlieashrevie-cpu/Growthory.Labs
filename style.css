@@ -1173,79 +1173,80 @@ hr {
     transform: rotate(-0.3deg);
 }
 
-/* Desktop banner */
+/* ===== MOBILE DESKTOP NOTICE BANNER ===== */
+
+/* hidden by default */
+.desktop-banner{
+    display:none;
+}
+
+/* show only on mobile */
+@media screen and (max-width:768px){
 
 .desktop-banner{
 
-width:100%;
-height:72px;
+    display:flex;
 
-background:var(--lime);
+    width:100%;
+    height:72px;
 
-overflow:hidden;
+    background:var(--lime);
 
-display:flex;
-align-items:center;
+    overflow:hidden;
 
-margin:0;
-padding:0;
+    margin:0;
+    padding:0;
+
+    align-items:center;
 }
 
-.desktop-banner-track{
+/* scope everything to banner only */
+.desktop-banner .desktop-banner-track{
 
-display:flex !important;
-flex-direction:row !important;
+    display:flex;
 
-align-items:center;
+    flex-direction:row;
 
-white-space:nowrap;
+    align-items:center;
 
-width:max-content;
+    width:max-content;
 
-gap:60px;
+    white-space:nowrap;
 
-animation:bannerScroll 15s linear infinite;
+    gap:35px;
+
+    animation:bannerScroll 18s linear infinite;
 }
 
-.banner-item{
+.desktop-banner .banner-item{
 
-display:flex !important;
+    display:flex;
 
-flex-direction:row !important;
+    align-items:center;
 
-align-items:center;
+    gap:12px;
 
-justify-content:center;
+    flex-shrink:0;
 
-gap:12px;
-
-flex-shrink:0;
-
-white-space:nowrap;
+    white-space:nowrap;
 }
 
-.banner-item i{
+.desktop-banner .banner-item i{
 
-font-size:1.3rem;
+    color:#000;
 
-color:#000 !important;
-
-display:inline-block;
+    font-size:1.3rem;
 }
 
-.banner-item span{
+.desktop-banner .banner-item span{
 
-color:#000 !important;
+    color:#000;
 
-font-size:1rem;
+    font-size:1rem;
 
-font-weight:800;
+    font-weight:800;
+}
 
-display:inline-block;
-
-white-space:nowrap;
-
-line-height:1;
 }
 
 @keyframes bannerScroll{
@@ -1257,35 +1258,4 @@ transform:translateX(0);
 to{
 transform:translateX(-50%);
 }
-
-}
-
-/* mobile only */
-
-.desktop-banner{
-display:none !important;
-}
-
-@media screen and (max-width:768px){
-
-.desktop-banner{
-display:flex !important;
-}
-
-}
-
-/* Hide banner everywhere by default */
-
-.desktop-banner{
-display:none !important;
-}
-
-/* Show only on phones/tablets */
-
-@media screen and (max-width:768px){
-
-.desktop-banner{
-display:flex !important;
-}
-
 }
